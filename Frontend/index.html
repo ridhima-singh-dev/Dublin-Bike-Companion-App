@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Script for rendering map -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbGq3UPYJO813_DFyMa0fkPwLLSop_Hhg&libraries=geometry,places&callback=initMap"></script>
+    <script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="constants.js"></script>
+    <script src="./utilities.js"></script>
+    <script src="./graph.js"></script>
+    <script type="module" src="./index.js"></script>
+    <link rel="stylesheet" href="homepage.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <script
+      src="https://kit.fontawesome.com/3650a9d39b.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Dublin Bikes | Plan your tour</title>
+    <link rel="icon" type="image/x-icon" href="/images/logo.svg" />
+  </head>
+  <body onload="init()">
+    <div id="main-container">
+      <!-- Page header -->
+      <header class="header-style">
+        <div class="headerClass">
+          <ul id="home-link">
+            <li><img src="./images/logo.svg" class="logoImg" /></li>
+            <li><a href="index.html" class="header-text">Dublin Bikes</a></li>
+          </ul>
+          <!-- <ul>
+        <label for="toggle-input" id="toggle-btn">
+          <input type="checkbox" id="toggle-input">
+          <span class="slider round"></span>
+        </label>
+      </ul> -->
+          <ul class="mid-section-header">
+            <div class="time-weather">
+              <div id="weather">
+                <li id="weather-temp"></li>
+                <img id="weather-icon" />
+              </div>
+              <div id="currentTime"></div>
+            </div>
+          </ul>
+          <ul id="other-options">
+            <li class="header-text">
+              <a href="index.html" class="journey-text">Journey Planner</a>
+            </li>
+            <li class="dark-mode">
+              <img
+                src="./images/dark-mode.png"
+                alt="dark mode"
+                title="Dark Mode"
+                id="dark-mode-icon"
+                onclick="toggleDarkMode()"
+              />
+            </li>
+          </ul>
+        </div>
+      </header>
+      <div class="body-content">
+        <div id="overlay"></div>
+        <!-- Search bar-->
+
+        <div class="side-panel-container">
+          <div class="search-wrapper"></div>
+
+          <!-- Side panel div -->
+          <div id="side-panel" style="display: none">
+            <div class="side-panel-header"></div>
+            <div class="side-panel-content">
+              <div id="trend-data">
+                <div id="stationDetail"></div>
+                <canvas id="myChart3"></canvas>
+                <canvas id="myChart4"></canvas>
+              </div>
+              <div id="prediction-data">
+                <div class="journey-card">
+                  <div class="journey-card-header">
+                    <p>Pickup Location:</p>
+                  </div>
+                  <div id="pickup-stationPrediction"></div>
+                  <div class="prediction-chart">
+                    <canvas id="pickup-location-chart"></canvas>
+                  </div>
+                </div>
+                <div class="journey-card">
+                  <div class="journey-card-header">
+                    <p>Drop Location:</p>
+                  </div>
+                  <div id="drop-stationPrediction"></div>
+                  <div class="prediction-chart">
+                    <canvas id="drop-location-chart"></canvas>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Map rendered -->
+      <div id="map"></div>
+      <div class="container">
+        <div class="button-container">
+          <button class="selected" onclick="showAvailable()">
+            Available Bikes
+          </button>
+          <button>Available Stands</button>
+        </div>
+      </div>
+      <div class="container">
+        <div class="box">
+          <div class="journeyPlannerHeading">
+            <h3>Plan your Bike Journey</h3>
+            <div class="arrow" onclick="toggleJourneyPlanner()"></div>
+          </div>
+          <div class="content">
+            <form>
+              <input
+                type="text"
+                id="from"
+                name="from"
+                placeholder="Enter pick-up location"
+                list="bikeLocations"
+                onchange="onChangePickUpOrDrop()"
+              />
+              <datalist id="bikeLocations"></datalist>
+              <!-- <select class="form-control select-options" id="from-options"></select> -->
+
+              <input
+                type="text"
+                class="form-control"
+                id="to"
+                name="to"
+                placeholder="Enter drop location"
+                list="bikeLocations"
+                onchange="onChangePickUpOrDrop()"
+              />
+              <!-- <select class="form-control select-options" id="to-options"></select> -->
+              <div class="date-time-input">
+                <input type="time" id="time" name="time" />
+                <input type="date" id="date" name="date" />
+              </div>
+
+              <button
+                type="button"
+                class="prediction-search"
+                id="search"
+                disabled
+                onclick="planJourney(); "
+              >
+                Search for Bikes
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scripts  -->
+
+    <!-- Script for combining HTML elements on index.html -->
+    <script src="element-combining.js"></script>
+  </body>
+</html>
