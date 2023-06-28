@@ -1,0 +1,7 @@
+name: dublinbikes
+channels:
+  - defaults
+dependencies:
+  - requests
+  - configparser
+prefix: /Users/macpro/opt/anaconda3/envs/dublinbikes

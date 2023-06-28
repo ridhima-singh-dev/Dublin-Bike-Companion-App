@@ -1,0 +1,192 @@
+{
+	"info": {
+		"_postman_id": "20a8392b-08c9-48d3-a553-45c903dc12ac",
+		"name": "Dublin Bikes",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26210514"
+	},
+	"item": [
+		{
+			"name": "Get Contracts List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.jcdecaux.com/vls/v1/contracts?apiKey=345d8f2cc1b7c5cf1bd07cbea465c9b0ee666e6a",
+					"protocol": "https",
+					"host": [
+						"api",
+						"jcdecaux",
+						"com"
+					],
+					"path": [
+						"vls",
+						"v1",
+						"contracts"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "345d8f2cc1b7c5cf1bd07cbea465c9b0ee666e6a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Station List",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.jcdecaux.com/vls/v1/stations?apiKey=345d8f2cc1b7c5cf1bd07cbea465c9b0ee666e6a",
+					"protocol": "https",
+					"host": [
+						"api",
+						"jcdecaux",
+						"com"
+					],
+					"path": [
+						"vls",
+						"v1",
+						"stations"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "345d8f2cc1b7c5cf1bd07cbea465c9b0ee666e6a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Station of a Contract",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.jcdecaux.com/vls/v1/stations?contract=rouen&apiKey=345d8f2cc1b7c5cf1bd07cbea465c9b0ee666e6a",
+					"protocol": "https",
+					"host": [
+						"api",
+						"jcdecaux",
+						"com"
+					],
+					"path": [
+						"vls",
+						"v1",
+						"stations"
+					],
+					"query": [
+						{
+							"key": "contract",
+							"value": "rouen"
+						},
+						{
+							"key": "apiKey",
+							"value": "345d8f2cc1b7c5cf1bd07cbea465c9b0ee666e6a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Station Information",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.jcdecaux.com/vls/v1/stations/19?contract=rouen&apiKey=345d8f2cc1b7c5cf1bd07cbea465c9b0ee666e6a",
+					"protocol": "https",
+					"host": [
+						"api",
+						"jcdecaux",
+						"com"
+					],
+					"path": [
+						"vls",
+						"v1",
+						"stations",
+						"19"
+					],
+					"query": [
+						{
+							"key": "contract",
+							"value": "rouen"
+						},
+						{
+							"key": "apiKey",
+							"value": "345d8f2cc1b7c5cf1bd07cbea465c9b0ee666e6a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Park List of a Contract",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.jcdecaux.com/parking/v1/contracts/toulouse/parks?apiKey=345d8f2cc1b7c5cf1bd07cbea465c9b0ee666e6a",
+					"protocol": "https",
+					"host": [
+						"api",
+						"jcdecaux",
+						"com"
+					],
+					"path": [
+						"parking",
+						"v1",
+						"contracts",
+						"toulouse",
+						"parks"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "345d8f2cc1b7c5cf1bd07cbea465c9b0ee666e6a"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get the Park Information",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://api.jcdecaux.com/parking/v1/contracts/toulouse/parks/10?apiKey=345d8f2cc1b7c5cf1bd07cbea465c9b0ee666e6a",
+					"protocol": "https",
+					"host": [
+						"api",
+						"jcdecaux",
+						"com"
+					],
+					"path": [
+						"parking",
+						"v1",
+						"contracts",
+						"toulouse",
+						"parks",
+						"10"
+					],
+					"query": [
+						{
+							"key": "apiKey",
+							"value": "345d8f2cc1b7c5cf1bd07cbea465c9b0ee666e6a"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
